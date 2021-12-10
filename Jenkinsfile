@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  aarif7836/springboot-docker-hello2:latest  .'
+                sh 'docker build -t  aarif7836/springboot-backendapp:latest  .'
             }
         }
 
@@ -34,14 +34,14 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push aarif7836/springboot-docker-hello2:latest'
+                sh 'docker push aarif7836/springboot-backendapp:latest'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8092:8092 aarif7836/springboot-docker-hello2:latest'
+                sh 'docker run -itd -p  8092:8092 aarif7836/springboot-backendapp:latest'
             }
         }
 
